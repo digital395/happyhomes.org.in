@@ -40,7 +40,7 @@ export default function Project() {
   return (
     <section className="relative w-full overflow-hidden bg-white">
       {/* ================= PROJECT CAROUSEL ================= */}
-      <div className="mx-auto w-full max-w-[1536px] px-4 py-12 sm:px-6 md:px-8 md:py-16 lg:px-10">
+      <div className="mx-auto w-full max-w-384 px-4 py-12 sm:px-6 md:px-8 md:py-16 lg:px-10">
         <div className="relative">
           {/* PROJECT CARD */}
           <motion.div
@@ -51,7 +51,7 @@ export default function Project() {
               duration: 0.45,
               ease: "easeOut",
             }}
-            className="group relative isolate h-[480px] w-full overflow-hidden rounded-3xl bg-[#541215] sm:h-[580px] md:h-[620px] lg:h-[650px]"
+            className="group relative isolate h-120 w-full overflow-hidden rounded-3xl bg-[#541215] sm:h-145 md:h-155 lg:h-162.5"
           >
             {/* ================= DESKTOP IMAGE ================= */}
             <Image
@@ -161,7 +161,7 @@ export default function Project() {
                 type="button"
                 aria-label={`Go to ${item.name}`}
                 onClick={() => setActiveProject(index)}
-                className={`h-[3px] rounded-full transition-all duration-300 ${
+                className={`h-0.75 rounded-full transition-all duration-300 ${
                   activeProject === index
                     ? "w-10 bg-[#781817]"
                     : "w-3 bg-[#781817]/25"
