@@ -117,7 +117,7 @@ useLayoutEffect(() => {
   return (
     <section
       ref={sectionRef}
-      className="w-full border-t border-[#781817] bg-white"
+      className="w-full bg-white"
     >
       {/* ================= HEADING ================= */}
       <div className="mx-auto max-w-337.5 px-5 py-12 md:px-8 md:py-16 lg:px-10">
@@ -211,7 +211,7 @@ useLayoutEffect(() => {
   ref={(el) => {
     mobileSlidesRef.current[index] = el;
   }}
-  className="relative h-[55svh] min-h-[400px] w-full min-w-full shrink-0 snap-start overflow-hidden"
+  className="relative h-[55svh] min-h-100 w-full min-w-full shrink-0 snap-start overflow-hidden"
 >
             {/* Image */}
             <Image
@@ -253,7 +253,7 @@ useLayoutEffect(() => {
               </h3>
 
               {/* Description */}
-              <p className="mx-auto mt-3 max-w-[340px] text-sm leading-6 text-white/90">
+              <p className="mx-auto mt-3 max-w-85 text-sm leading-6 text-white/90">
                 {item.description}
               </p>
 
@@ -262,7 +262,7 @@ useLayoutEffect(() => {
   {highlights.map((_, dotIndex) => (
     <span
       key={dotIndex}
-      className={`h-[2px] transition-all duration-300 ${
+      className={`h-0.5 transition-all duration-300 ${
         dotIndex === mobileActive
           ? "w-8 bg-white"
           : "w-3 bg-white/40"

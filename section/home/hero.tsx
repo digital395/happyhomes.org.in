@@ -37,7 +37,7 @@ export default function Hero() {
             </p>
 
             <a
-              href="/project"
+              href="/project/emperor-city"
               className="mt-6 inline-flex min-h-10 items-center justify-center bg-[#741b19] px-6 text-[10px] font-medium text-[#e5c27b] transition-colors duration-300 hover:bg-[#53110f]"
             >
               EXPLORE PLOTS
