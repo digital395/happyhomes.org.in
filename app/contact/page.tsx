@@ -7,9 +7,9 @@ export default function ContactPage() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
       <Hero />
-      <About />
-      <Location />
       <Form />
+      {/* <About /> */}
+      <Location />
     </main>
   );
 }

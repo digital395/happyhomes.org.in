@@ -109,7 +109,7 @@ export default function Project() {
             A New Chapter in Planned Living
           </h2>
 
-          <p className="mx-auto mt-7 max-w-250 text-[13px] leading-[2.2] font-normal tracking-[0.5px] text-[#000] md:text-[18px]">
+          <p className="mx-auto mt-7 max-w-250 text-[13px] leading-[2.2] font-normal tracking-[0.5px] text-black md:text-[18px]">
             A home begins with a place. At Happy Homes, we believe that choosing
             the right place is the first step towards building a happy and
             secure future. We identify locations with strong growth potential,

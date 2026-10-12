@@ -50,7 +50,7 @@ export default function Hero() {
 
       gsap.set(buildingRef.current, {
         opacity: 1,
-        scale: 1,
+        scale: 1.2,
         transformOrigin: "center center",
       });
 
@@ -58,7 +58,7 @@ export default function Hero() {
         opacity: 1,
         y: 0,
         scale: 1,
-        height: "350px",
+        height: "650px",
       });
 
       gsap.set(logoRef.current, {
@@ -109,8 +109,8 @@ export default function Hero() {
       tl.to(
         buildingRef.current,
         {
-          scale: 1.5,
-          duration: 1.8,
+          scale: 1.8,
+          duration: 2,
           ease: "power2.inOut",
         },
         "start+=0.7",
@@ -119,22 +119,22 @@ export default function Hero() {
       tl.to(
         cloudRef.current,
         {
-          height: "650px",
+          height: "950px",
           duration: 1.5,
           ease: "power2.out",
         },
-        "start+=1.8",
+        "start+=3",
       );
 
       tl.to(
         buildingRef.current,
         {
           autoAlpha: 0,
-          scale: 1.8,
+          scale: 2.4,
           duration: 0.8,
           ease: "power2.in",
         },
-        "start+=2.4",
+        "start+=2.5",
       );
 
       tl.to(
@@ -146,7 +146,7 @@ export default function Hero() {
           duration: 0.8,
           ease: "power2.out",
         },
-        "start+=3",
+        "start+=3.5",
       );
     }, sectionRef);
 
@@ -165,10 +165,10 @@ export default function Hero() {
         >
           <div
             ref={buildingRef}
-            className="absolute inset-x-0 top-25 bottom-0 z-10 will-change-transform"
+            className="absolute inset-x-0  md:top-[-200] bottom-0 z-10 will-change-transform"
           >
             <Image
-              src="/image/animation/building.png"
+              src="/image/animation/building.webp"
               alt="Modern luxury property"
               fill
               priority
@@ -182,21 +182,21 @@ export default function Hero() {
           >
             <h1
               ref={headingRef}
-              className="font-serif text-[48px] leading-[0.95] font-normal tracking-[-2.5px] text-[#7A1A15] uppercase sm:text-[60px] md:text-[60px]"
+              className="font-marcellus text-center text-[22px] leading-[1.05] font-normal tracking-[-1px] text-[#7A1A15] uppercase sm:text-left sm:text-[60px] sm:tracking-[-1.5px] md:text-[60px]"
             >
-              {"Find a Place That Feels Right."
+              {"Find a Place That Feels Right"
                 .split("")
                 .map((letter, index) => (
                   <span
                     key={index}
-                    className="hero-letter inline-block will-change-transform"
+                    className="hero-letter font-marcellus inline-block will-change-transform"
                   >
                     {letter === " " ? "\u00A0" : letter}
                   </span>
                 ))}
             </h1>
 
-            <p className="hero-subtitle mt-3.5 text-[22px] leading-tight font-semibold tracking-[-1px] text-[#7A1A15] sm:text-[18px]">
+            <p className="hero-subtitle mt-3 text-center text-[14px] leading-relaxed font-light tracking-normal text-[#7A1A15] sm:mt-3.5 sm:text-left sm:text-[16px] sm:tracking-[-1px]">
               Explore our growing portfolio of thoughtfully planned plotted
               developments across Tamil Nadu.
             </p>
@@ -220,7 +220,7 @@ export default function Hero() {
           </div>
           <div
             ref={cloudRef}
-            className="absolute -bottom-15 left-0 z-20 h-87.5 w-full will-change-transform"
+            className="absolute -bottom-5 left-0 z-20 h-100.5 w-full will-change-transform"
           >
             <Image
               src="/image/animation/cloud.png"
@@ -234,7 +234,7 @@ export default function Hero() {
             ref={logoRef}
             className="pointer-events-none absolute inset-x-0 bottom-45 z-30 flex flex-col items-center justify-center sm:bottom-57.5"
           >
-            <h2 className="font-serif text-[48px] leading-[0.95] font-normal tracking-[-2.5px] text-[#7A1A15] uppercase sm:text-[60px] md:text-[60px]">
+            <h2 className="font-serif text-[48px] leading-[0.95] font-black tracking-[-2.5px] text-[#7A1A15] uppercase sm:text-[60px] md:text-[60px]">
               {"Welcome to".split("").map((letter, index) => (
                 <span
                   key={index}

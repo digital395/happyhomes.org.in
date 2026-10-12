@@ -38,7 +38,6 @@ const imageVariants = {
 export default function Gallery() {
   const [imageOffset, setImageOffset] = useState(0);
 
-  // Automatically rotate gallery
   useEffect(() => {
     if (images.length <= 1) return;
 
@@ -61,21 +60,49 @@ export default function Gallery() {
     <section className="w-full bg-white px-4 py-3 pt-12 lg:px-10 lg:py-10">
       {" "}
       <div className="mx-auto w-full max-w-350">
-        <div className="mb-7 text-center sm:mb-8 md:mb-10">
-          <div className="mb-3 flex items-center justify-center gap-3 md:mb-4 md:gap-4">
+        <motion.div
+          className="mb-7 text-center sm:mb-8 md:mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+        >
+          <motion.div
+            className="mb-3 flex items-center justify-center gap-3 md:mb-4 md:gap-4"
+            initial={{ opacity: 0, scaleX: 0.8 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+          >
             <span className="h-px w-16 bg-linear-to-l from-[#781817] to-transparent md:w-24 lg:w-28" />
 
-            <span className="shrink-0 font-serif text-[11px] tracking-[1px] text-[#781817] md:text-[14px] lg:text-[15px]">
+            <span className="shrink-0 font-serif text-[11px] tracking-[1px] text-[#781817] uppercase md:text-[14px] lg:text-[15px]">
               GALLERY
             </span>
 
             <span className="h-px w-16 bg-linear-to-r from-[#781817] to-transparent md:w-24 lg:w-28" />
-          </div>
+          </motion.div>
 
-          <h2 className="mx-auto max-w-full text-center font-serif text-[30px] leading-[1.12] font-normal text-[#781817] md:text-[40px]">
+          <motion.h2
+            className="mx-auto max-w-full text-center font-serif text-[25px] leading-[1.12] font-normal text-[#781817] md:text-[40px]"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.9,
+              delay: 0.1,
+              ease: "easeInOut",
+            }}
+          >
             Explore the Places Where Happier Futures Begin
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
         <motion.div
           initial="hidden"

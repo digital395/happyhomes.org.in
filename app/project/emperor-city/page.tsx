@@ -7,6 +7,7 @@ import Highlights from "@/section/project/emperor-city/highlights";
 import Overview from "@/section/project/emperor-city/overview";
 import Map from "@/section/project/emperor-city/map";
 import Layout from "@/section/project/emperor-city/layout";
+import Amenities from "@/section/project/emperor-city/amenities";
 
 export default function AboutPage() {
   return (
@@ -14,6 +15,7 @@ export default function AboutPage() {
       <Hero />
       <About />
       <Overview />
+      <Amenities />
       <Highlights />
       <Map />
       <Layout />

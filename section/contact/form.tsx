@@ -87,7 +87,7 @@ export default function ContactForm() {
           <span className="h-px w-16 bg-linear-to-l from-[#781817] to-transparent md:w-28 lg:w-36" />
 
           <span className="shrink-0 font-serif text-[11px] tracking-[1px] text-[#781817] md:text-[15px] lg:text-[16px]">
-            ABOUT US
+            CONTACT US
           </span>
 
           <span className="h-px w-16 bg-linear-to-r from-[#781817] to-transparent md:w-28 lg:w-36" />

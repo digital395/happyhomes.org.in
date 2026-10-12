@@ -72,39 +72,6 @@ export default function About() {
             families and investors across the state.
           </p>
         </div>
-
-        <div className="mt-12 grid grid-cols-1 gap-2.25 sm:grid-cols-2 lg:grid-cols-3">
-          {about.map((item, index) => (
-            <div
-              key={index}
-              className="min-h-43.5 rounded-[14px] bg-[#781817] px-6 py-5 transition-transform duration-300 hover:-translate-y-1 lg:min-h-57.5 lg:px-8 lg:py-7"
-            >
-              <div className="mb-4 h-8.75 w-8.75 lg:mb-5 lg:h-12 lg:w-12">
-                <img
-                  src={item.icon}
-                  alt=""
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <h3
-                className="font-marcellus text-[20px] leading-tight font-semibold md:text-[25px]"
-                style={{
-                  background:
-                    "radial-gradient(36.25% 152.47% at 49.79% 50%, #FDEF63 0%, #FCEA5E 20%, #F9DB52 43%, #F4C33E 68%, #EEA222 94%, #EE9F20 97%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                {item.title}
-              </h3>
-
-              <p className="mt-3 max-w-67.5 text-[14px] leading-[1.55] font-normal text-white lg:mt-4 lg:max-w-82.5 lg:text-[16px] lg:leading-[1.6]">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
