@@ -82,7 +82,7 @@ export default function Highlights() {
                     {item.title}
                   </h3>
 
-                  <p className="mt-1 max-w-[85%] text-[13px] leading-[1.45] font-normal text-white sm:max-w-125 sm:text-[15px] md:max-w-175 md:text-[18px] md:leading-[1.5]">
+                  <p className="mt-1 max-w-[85%] text-[13px] leading-[1.45] font-normal text-white sm:max-w-125 sm:text-[15px] md:max-w-175 md:text-[18px] md:leading-normal">
                     {item.description}
                   </p>
                 </div>

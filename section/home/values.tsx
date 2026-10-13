@@ -299,7 +299,7 @@ export default function Values() {
               <motion.div
                 ref={carouselRef}
                 onScroll={handleScroll}
-                className="flex w-full snap-x snap-mandatory [scrollbar-width:none] gap-3 overflow-x-auto overscroll-x-contain scroll-smooth [&::-webkit-scrollbar]:hidden"
+                className="flex w-full snap-x snap-mandatory scrollbar-none gap-3 overflow-x-auto overscroll-x-contain scroll-smooth [&::-webkit-scrollbar]:hidden"
                 style={{
                   scrollBehavior: shouldReduceMotion ? "auto" : "smooth",
                 }}
