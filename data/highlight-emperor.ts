@@ -24,7 +24,7 @@ export const highlights = [
     description:
       "Designed for smooth movement and better accessibility across the township.",
     icon: "/image/project/highlights/4.png",
-    image: "/image/project/highlights/image/4.webp",
+    image: "/image/project/highlights/4.webp",
   },
   {
     title: "Future Connectivity",
