@@ -1,5 +1,5 @@
 import Hero from "@/section/contact/hero";
-import About from "@/section/contact/about";
+// import About from "@/section/contact/about";
 import Form from "@/section/contact/form";
 import Location from "@/section/contact/location";
 

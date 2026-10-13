@@ -238,7 +238,7 @@ export default function EnquiryPopup({
 
                     <motion.p
                       variants={fieldVariants}
-                      className="mt-3 max-w-100 text-[12px] leading-relaxed text-white/55 md:text-[14px]"
+                      className="font-poppins mt-3 max-w-100 text-[12px] leading-relaxed text-white/55 md:text-[14px]"
                     >
                       Tell us a little about yourself and our property experts
                       will get back to you shortly.
@@ -291,7 +291,7 @@ export default function EnquiryPopup({
                   >
                     <label
                       htmlFor="enquiry-name"
-                      className="text-[12px] font-semibold tracking-[1.5px] text-[#7A1A15] uppercase md:text-[13px]"
+                      className="font-poppins text-[12px] font-semibold tracking-[1.5px] text-[#7A1A15] uppercase md:text-[13px]"
                     >
                       Name <span className="text-red-600">*</span>
                     </label>
@@ -314,7 +314,7 @@ export default function EnquiryPopup({
                         const value = e.target.value.replace(/[^A-Za-z ]/g, "");
                         setName(value);
                       }}
-                      className="h-11 w-full border-b border-[#d9d9d9] bg-transparent px-1 text-[13px] text-[#333] transition-colors duration-300 outline-none placeholder:text-[#aaa] focus:border-[#7A1A15]"
+                      className="font-poppins h-11 w-full border-b border-[#d9d9d9] bg-transparent px-1 text-[13px] text-[#333] transition-colors duration-300 outline-none placeholder:text-[#aaa] focus:border-[#7A1A15]"
                     />
                   </motion.div>
 
@@ -324,7 +324,7 @@ export default function EnquiryPopup({
                   >
                     <label
                       htmlFor="enquiry-phone"
-                      className="text-[12px] font-semibold tracking-[1.5px] text-[#7A1A15] uppercase md:text-[13px]"
+                      className="font-poppins text-[12px] font-semibold tracking-[1.5px] text-[#7A1A15] uppercase md:text-[13px]"
                     >
                       Phone <span className="text-red-600">*</span>
                     </label>
@@ -353,7 +353,7 @@ export default function EnquiryPopup({
 
                         setPhone(value);
                       }}
-                      className="h-11 w-full border-b border-[#d9d9d9] bg-transparent px-1 text-[13px] text-[#333] transition-colors duration-300 outline-none placeholder:text-[#aaa] focus:border-[#7A1A15]"
+                      className="font-poppins h-11 w-full border-b border-[#d9d9d9] bg-transparent px-1 text-[13px] text-[#333] transition-colors duration-300 outline-none placeholder:text-[#aaa] focus:border-[#7A1A15]"
                     />
                   </motion.div>
                 </div>
@@ -364,7 +364,7 @@ export default function EnquiryPopup({
                 >
                   <label
                     htmlFor="enquiry-email"
-                    className="text-[12px] font-semibold tracking-[1.5px] text-[#7A1A15] uppercase md:text-[13px]"
+                    className="font-poppins text-[12px] font-semibold tracking-[1.5px] text-[#7A1A15] uppercase md:text-[13px]"
                   >
                     Email
                   </label>
@@ -382,7 +382,7 @@ export default function EnquiryPopup({
                     type="email"
                     placeholder="Your Email (Optional)"
                     autoComplete="email"
-                    className="h-11 w-full border-b border-[#d9d9d9] bg-transparent px-1 text-[13px] text-[#333] transition-colors duration-300 outline-none placeholder:text-[#aaa] focus:border-[#7A1A15]"
+                    className="font-poppins h-11 w-full border-b border-[#d9d9d9] bg-transparent px-1 text-[13px] text-[#333] transition-colors duration-300 outline-none placeholder:text-[#aaa] focus:border-[#7A1A15]"
                   />
                 </motion.div>
 
@@ -393,7 +393,7 @@ export default function EnquiryPopup({
                       animate={{ opacity: 1, y: 0, height: "auto" }}
                       exit={{ opacity: 0, y: -8, height: 0 }}
                       transition={{ duration: 0.35, ease }}
-                      className="mt-6 text-center text-[11px] font-medium text-[#b42318] md:text-[12px]"
+                      className="font-poppins mt-6 text-center text-[11px] font-medium text-[#b42318] md:text-[12px]"
                     >
                       {formError}
                     </motion.p>
@@ -407,7 +407,7 @@ export default function EnquiryPopup({
                       animate={{ opacity: 1, y: 0, height: "auto" }}
                       exit={{ opacity: 0, y: -8, height: 0 }}
                       transition={{ duration: 0.35, ease }}
-                      className="mt-6 text-center text-[11px] font-medium text-[#16803c] md:text-[12px]"
+                      className="font-poppins mt-6 text-center text-[11px] font-medium text-[#16803c] md:text-[12px]"
                     >
                       {formSuccess}
                     </motion.p>
@@ -439,7 +439,7 @@ export default function EnquiryPopup({
                     duration: 0.35,
                     ease,
                   }}
-                  className="mx-auto mt-8 flex h-11 min-w-44 items-center justify-center overflow-hidden bg-[radial-gradient(36.25%_152.47%_at_49.79%_50%,#FDEF63_0%,#FCEA5E_20%,#F9DB52_43%,#F4C33E_68%,#EEA222_94%,#EE9F20_97%)] px-7 text-[13px] font-semibold tracking-[1.2px] text-[#541215] uppercase shadow-[0_8px_20px_rgba(238,162,34,0.18)] transition-all duration-300 hover:shadow-[0_10px_25px_rgba(238,162,34,0.28)] hover:brightness-95 disabled:cursor-not-allowed"
+                  className="font-poppins mx-auto mt-8 flex h-11 min-w-44 items-center justify-center overflow-hidden bg-[radial-gradient(36.25%_152.47%_at_49.79%_50%,#FDEF63_0%,#FCEA5E_20%,#F9DB52_43%,#F4C33E_68%,#EEA222_94%,#EE9F20_97%)] px-7 text-[13px] font-semibold tracking-[1.2px] text-[#541215] uppercase shadow-[0_8px_20px_rgba(238,162,34,0.18)] transition-all duration-300 hover:shadow-[0_10px_25px_rgba(238,162,34,0.28)] hover:brightness-95 disabled:cursor-not-allowed"
                 >
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -476,7 +476,7 @@ export default function EnquiryPopup({
                   </AnimatePresence>
                 </motion.button>
 
-                <p className="mt-4 text-center text-[11px] tracking-[0.2px] text-[#999] md:text-[14px]">
+                <p className="font-poppins mt-4 text-center text-[11px] tracking-[0.2px] text-[#999] md:text-[14px]">
                   Your information is safe with us. We'll never share your
                   details.
                 </p>
@@ -493,7 +493,6 @@ export default function EnquiryPopup({
               exit="exit"
               className="w-full max-w-md rounded-2xl bg-white px-7 py-10 text-center shadow-2xl sm:px-10"
             >
-              {" "}
               <motion.div
                 initial={{ scale: 0, rotate: -20 }}
                 animate={{ scale: 1, rotate: 0 }}
@@ -526,7 +525,7 @@ export default function EnquiryPopup({
                   duration: 0.5,
                   ease,
                 }}
-                className="font-marcellus mt-6 text-2xl text-[#541215] sm:text-3xl"
+                className="font-poppins mt-6 text-2xl text-[#541215] sm:text-3xl"
               >
                 Thank You!
               </motion.h2>
@@ -538,7 +537,7 @@ export default function EnquiryPopup({
                   duration: 0.5,
                   ease,
                 }}
-                className="mt-3 text-sm leading-6 text-[#666]"
+                className="font-poppins mt-3 text-sm leading-6 text-[#666]"
               >
                 Thank you for contacting Happy Homes. Your enquiry has been
                 received successfully. Our property experts will get in touch
@@ -547,7 +546,7 @@ export default function EnquiryPopup({
               <button
                 type="button"
                 onClick={handleClose}
-                className="mt-7 inline-flex h-11 items-center justify-center rounded-sm bg-[radial-gradient(36.25%_152.47%_at_49.79%_50%,#FDEF63_0%,#FCEA5E_20%,#F9DB52_43%,#F4C33E_68%,#EEA222_94%,#EE9F20_97%),linear-gradient(90deg,#541215_0%,#7A1A15_100%)] px-8 text-sm font-semibold tracking-wide text-[#541215] uppercase transition hover:brightness-95"
+                className="font-poppins mt-7 inline-flex h-11 items-center justify-center rounded-sm bg-[radial-gradient(36.25%_152.47%_at_49.79%_50%,#FDEF63_0%,#FCEA5E_20%,#F9DB52_43%,#F4C33E_68%,#EEA222_94%,#EE9F20_97%),linear-gradient(90deg,#541215_0%,#7A1A15_100%)] px-8 text-sm font-semibold tracking-wide text-[#541215] uppercase transition hover:brightness-95"
               >
                 Close
               </button>

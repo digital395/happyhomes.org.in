@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { faqs } from "@/data/faq-emperor-city";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -26,7 +26,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.65,
+      duration: 0.7,
       ease,
     },
   },
@@ -34,6 +34,7 @@ const itemVariants = {
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number>(0);
+  const shouldReduceMotion = useReducedMotion();
 
   const toggleFAQ = (index: number) => {
     setOpenIndex((current) => (current === index ? -1 : index));
@@ -52,49 +53,43 @@ export default function FAQ() {
           variants={containerVariants}
           className="mb-8 text-center sm:mb-10 md:mb-12"
         >
-          <motion.div
-            variants={itemVariants}
-            className="mb-3 flex items-center justify-center gap-3 md:mb-4 md:gap-4"
-          >
+          <div className="mb-3 flex items-center justify-center gap-3 md:mb-4 md:gap-4">
             <motion.span
-              initial={{ width: 0, opacity: 0 }}
-              whileInView={{
-                width: "clamp(4rem, 8vw, 7rem)",
-                opacity: 1,
-              }}
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.8,
+                duration: shouldReduceMotion ? 0.01 : 0.8,
                 ease,
               }}
-              className="h-px bg-linear-to-l from-[#781817] to-transparent"
+              style={{ originX: 1 }}
+              className="h-px w-16 bg-linear-to-l from-[#781817] to-transparent md:w-24 lg:w-28"
             />
 
             <motion.span
               variants={itemVariants}
-              className="shrink-0 font-serif text-[11px] tracking-[1px] text-[#781817] md:text-[14px] lg:text-[15px]"
+              className="font-poppins shrink-0 text-[11px] tracking-[1px] text-[#781817] md:text-[14px] lg:text-[15px]"
             >
               FAQ
             </motion.span>
 
             <motion.span
-              initial={{ width: 0, opacity: 0 }}
-              whileInView={{
-                width: "clamp(4rem, 8vw, 7rem)",
-                opacity: 1,
-              }}
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.8,
+                duration: shouldReduceMotion ? 0.01 : 0.8,
+                delay: 0.1,
                 ease,
               }}
-              className="h-px bg-linear-to-r from-[#781817] to-transparent"
+              style={{ originX: 0 }}
+              className="h-px w-16 bg-linear-to-r from-[#781817] to-transparent md:w-24 lg:w-28"
             />
-          </motion.div>
+          </div>
 
           <motion.h2
             variants={itemVariants}
-            className="mx-auto max-w-full text-center font-serif text-[30px] leading-[1.12] font-normal text-[#781817] md:text-[40px]"
+            className="font-marcellus mx-auto max-w-full text-center text-[30px] leading-[1.12] font-normal text-[#781817] md:text-[40px]"
           >
             The principles behind every place we create
           </motion.h2>
@@ -117,20 +112,24 @@ export default function FAQ() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                layout
+                layout={!shouldReduceMotion}
                 transition={{
                   layout: {
-                    duration: 0.45,
+                    duration: shouldReduceMotion ? 0.01 : 0.45,
                     ease,
                   },
                 }}
-                whileHover={{
-                  y: -2,
-                  transition: {
-                    duration: 0.3,
-                    ease,
-                  },
-                }}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        y: -2,
+                        transition: {
+                          duration: 0.25,
+                          ease,
+                        },
+                      }
+                }
                 className={`overflow-hidden rounded-[9px] border ${
                   isOpen
                     ? "border-[#e3e3e8] shadow-[0_8px_25px_rgba(0,0,0,0.07)]"
@@ -142,10 +141,8 @@ export default function FAQ() {
                   onClick={() => toggleFAQ(index)}
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
-                  whileTap={{
-                    scale: 0.995,
-                  }}
-                  className={`group relative flex w-full items-center justify-between gap-4 overflow-hidden text-left ${
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.995 }}
+                  className={`font-poppins group relative flex w-full items-center justify-between gap-4 overflow-hidden text-left ${
                     isOpen
                       ? "bg-[#fffaf5] px-4 pt-5 pb-3 sm:px-6 sm:pt-5 sm:pb-3 md:px-5"
                       : "bg-white px-4 py-5 hover:bg-[#fffaf5] sm:px-6 sm:py-5 md:px-5"
@@ -157,11 +154,8 @@ export default function FAQ() {
                     animate={{
                       scaleY: isOpen ? 1 : 0,
                     }}
-                    whileHover={{
-                      scaleY: isOpen ? 1 : 0.5,
-                    }}
                     transition={{
-                      duration: 0.4,
+                      duration: shouldReduceMotion ? 0.01 : 0.4,
                       ease,
                     }}
                   />
@@ -169,13 +163,13 @@ export default function FAQ() {
                   <span className="flex min-w-0 items-start gap-3 sm:gap-4">
                     <motion.span
                       animate={{
-                        x: isOpen ? 2 : 0,
+                        x: isOpen && !shouldReduceMotion ? 2 : 0,
                       }}
                       transition={{
-                        duration: 0.35,
+                        duration: shouldReduceMotion ? 0.01 : 0.35,
                         ease,
                       }}
-                      className={`text-[14px] leading-6 font-medium md:text-[17px] ${
+                      className={`font-poppins text-[14px] leading-6 font-medium md:text-[17px] ${
                         isOpen
                           ? "text-[#751919]"
                           : "text-[#48464a] group-hover:text-[#751919]"
@@ -190,12 +184,12 @@ export default function FAQ() {
                       rotate: isOpen ? 180 : 0,
                       scale: isOpen ? 1 : 1,
                     }}
-                    whileHover={{
-                      scale: 1.08,
-                    }}
+                    whileHover={
+                      shouldReduceMotion ? undefined : { scale: 1.08 }
+                    }
                     transition={{
                       rotate: {
-                        duration: 0.45,
+                        duration: shouldReduceMotion ? 0.01 : 0.45,
                         ease,
                       },
                       scale: {
@@ -232,11 +226,11 @@ export default function FAQ() {
                       }}
                       transition={{
                         height: {
-                          duration: 0.45,
+                          duration: shouldReduceMotion ? 0.01 : 0.45,
                           ease,
                         },
                         opacity: {
-                          duration: 0.3,
+                          duration: shouldReduceMotion ? 0.01 : 0.3,
                           ease,
                         },
                       }}
@@ -244,7 +238,7 @@ export default function FAQ() {
                     >
                       <motion.div
                         initial={{
-                          y: -10,
+                          y: shouldReduceMotion ? 0 : -10,
                           opacity: 0,
                         }}
                         animate={{
@@ -252,17 +246,17 @@ export default function FAQ() {
                           opacity: 1,
                         }}
                         exit={{
-                          y: -8,
+                          y: shouldReduceMotion ? 0 : -8,
                           opacity: 0,
                         }}
                         transition={{
-                          duration: 0.4,
-                          delay: 0.05,
+                          duration: shouldReduceMotion ? 0.01 : 0.4,
+                          delay: shouldReduceMotion ? 0 : 0.05,
                           ease,
                         }}
                         className="px-4 pt-1 pb-5 sm:px-5 sm:pb-5 md:px-3.75 md:pb-5.5"
                       >
-                        <p className="max-w-262.5 text-[13px] leading-[1.8] font-normal tracking-[0.02em] text-[#8b8b90] md:text-[16px]">
+                        <p className="font-poppins max-w-262.5 text-[13px] leading-[1.8] tracking-[0.02em] text-[#8b8b90] md:text-[16px]">
                           {faq.answer}
                         </p>
                       </motion.div>

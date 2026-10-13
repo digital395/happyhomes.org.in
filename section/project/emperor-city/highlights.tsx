@@ -2,8 +2,24 @@
 
 import { highlights } from "@/data/highlight-emperor";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 export default function Highlights() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const previous = () => {
+    setActiveIndex((current) =>
+      current === 0 ? highlights.length - 1 : current - 1,
+    );
+  };
+
+  const next = () => {
+    setActiveIndex((current) => (current + 1) % highlights.length);
+  };
+
+  const item = highlights[activeIndex];
+
   return (
     <section className="w-full bg-white px-5 py-12 md:px-8 md:py-14 lg:px-10 lg:py-12">
       <div className="mx-auto max-w-337.5">
@@ -35,42 +51,78 @@ export default function Highlights() {
           </motion.h2>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-2.25 sm:grid-cols-2 lg:grid-cols-3">
-          {highlights.map((item, index) => (
+        <div className="relative mx-auto mt-8 w-full max-w-350 sm:mt-10 lg:mt-12">
+          <div className="overflow-hidden rounded-[14px] md:rounded-[18px]">
             <motion.div
-              key={item.title ?? index}
-              className="min-h-43.5 rounded-[14px] bg-[#781817] px-6 py-5 transition-transform duration-300 hover:-translate-y-1 lg:min-h-57.5 lg:px-8 lg:py-7"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              key={item.title}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
             >
-              <div className="mb-4 h-8.75 w-8.75 lg:mb-5 lg:h-12 lg:w-12">
-                <img
-                  src={item.icon}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <h3
-                className="font-marcellus text-[20px] leading-tight font-semibold md:text-[25px]"
+              <div
+                className="group relative flex min-h-72 flex-col justify-end overflow-hidden rounded-[14px] px-5 py-6 sm:min-h-80 sm:px-6 sm:py-7 md:min-h-125 md:rounded-[18px] md:px-12 md:py-10 lg:min-h-135"
                 style={{
-                  background:
-                    "radial-gradient(36.25% 152.47% at 49.79% 50%, #FDEF63 0%, #FCEA5E 20%, #F9DB52 43%, #F4C33E 68%, #EEA222 94%, #EE9F20 97%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  backgroundImage: `url(${item.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               >
-                {item.title}
-              </h3>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-linear-to-t from-[#781817] via-[#781817]/70 to-transparent sm:h-[50%] md:h-[40%]" />
 
-              <p className="mt-3 max-w-67.5 text-[14px] leading-[1.55] font-normal text-white lg:mt-4 lg:max-w-82.5 lg:text-[16px] lg:leading-[1.6]">
-                {item.description}
-              </p>
+                <div className="relative z-10 w-full">
+                  <h3
+                    className="font-marcellus text-[21px] leading-tight font-semibold sm:text-[24px] md:text-[36px] lg:text-[40px]"
+                    style={{
+                      background:
+                        "radial-gradient(36.25% 152.47% at 49.79% 50%, #FDEF63 0%, #FCEA5E 20%, #F9DB52 43%, #F4C33E 68%, #EEA222 94%, #EE9F20 97%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-1 max-w-[85%] text-[13px] leading-[1.45] font-normal text-white sm:max-w-125 sm:text-[15px] md:max-w-175 md:text-[18px] md:leading-[1.5]">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
             </motion.div>
-          ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={previous}
+            aria-label="Previous highlight"
+            className="absolute top-1/2 left-[-15] z-20 flex size-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#781817] shadow-md transition hover:bg-white sm:left-3 sm:size-10 md:left-5 md:size-14"
+          >
+            <ChevronLeft className="size-5 sm:size-5.5 md:size-7" />
+          </button>
+
+          <button
+            type="button"
+            onClick={next}
+            aria-label="Next highlight"
+            className="absolute top-1/2 right-[-15] z-20 flex size-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#781817] shadow-md transition hover:bg-white sm:right-3 sm:size-10 md:right-5 md:size-14"
+          >
+            <ChevronRight className="size-5 sm:size-5.5 md:size-7" />
+          </button>
+
+          <div className="mt-4 flex justify-center gap-1.5 sm:mt-5 sm:gap-2 md:mt-6">
+            {highlights.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Go to highlight ${index + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 sm:h-2 ${
+                  index === activeIndex
+                    ? "w-6 bg-[#781817] sm:w-8"
+                    : "w-1.5 bg-[#781817]/30 sm:w-2"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -18,7 +18,7 @@ export async function sendGoogleLeadMail(data: LeadMailPayload) {
 
     const mailOptions = {
       from: `Happy Homes Leads`,
-      to: ["info@happyhomes.org.in", "clientservicing@blackcoffeebrands.co.in"],
+      to: ["info@happyhomes.org.in"],
       subject: "New Google Lead - Happy Homes",
       html: `
     <h2>New Lead Received</h2>

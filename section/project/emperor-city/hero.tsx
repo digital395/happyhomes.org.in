@@ -165,9 +165,8 @@ export default function Hero() {
         >
           <div
             ref={buildingRef}
-            className="absolute inset-x-0 top-[-20] bottom-0 z-10 h-[75vh] will-change-transform sm:h-[68vh] md:top-[-200] md:h-[120vh]"
+            className="absolute inset-x-0 top-[150] bottom-0 z-10 h-[75vh] will-change-transform sm:h-[68vh] md:top-[-200] md:h-[120vh]"
           >
-            {/* Desktop image */}
             <Image
               src="/image/animation/building.webp"
               alt="Modern luxury property"
@@ -176,10 +175,8 @@ export default function Hero() {
               sizes="100vw"
               className="hidden object-cover object-top md:block"
             />
-
-            {/* Phone image */}
             <Image
-              src="/image/animation/build.png"
+              src="/image/animation/build2.webp"
               alt="Modern luxury property"
               fill
               priority
@@ -231,14 +228,22 @@ export default function Hero() {
           </div>
           <div
             ref={cloudRef}
-            className="absolute -bottom-5 left-0 z-20 h-100.5 w-full will-change-transform"
+            className="absolute bottom-0 left-0 z-20 h-100.5 w-full will-change-transform md:h-100.5"
           >
             <Image
               src="/image/animation/cloud.png"
               alt=""
               fill
               sizes="100vw"
-              className="object-fill"
+              className="hidden object-fill md:block"
+            />
+
+            <Image
+              src="/image/animation/cloud.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover md:hidden"
             />
           </div>
           <div
