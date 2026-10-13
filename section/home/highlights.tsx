@@ -12,8 +12,8 @@ export default function Highlights() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const slidesContainerRef = useRef<HTMLDivElement | null>(null);
   const slidesRef = useRef<(HTMLElement | null)[]>([]);
-const [mobileActive, setMobileActive] = useState(0);
-const mobileSlidesRef = useRef<(HTMLElement | null)[]>([]);
+  const [mobileActive, setMobileActive] = useState(0);
+  const mobileSlidesRef = useRef<(HTMLElement | null)[]>([]);
   useLayoutEffect(() => {
     // GSAP is only needed for desktop
     if (window.innerWidth < 768) return;
@@ -85,40 +85,37 @@ const mobileSlidesRef = useRef<(HTMLElement | null)[]>([]);
 
     return () => ctx.revert();
   }, []);
-useLayoutEffect(() => {
-  const slides = mobileSlidesRef.current.filter(
-    (slide): slide is HTMLElement => slide !== null,
-  );
+  useLayoutEffect(() => {
+    const slides = mobileSlidesRef.current.filter(
+      (slide): slide is HTMLElement => slide !== null,
+    );
 
-  if (!slides.length) return;
+    if (!slides.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = slides.indexOf(entry.target as HTMLElement);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = slides.indexOf(entry.target as HTMLElement);
 
-          if (index !== -1) {
-            setMobileActive(index);
+            if (index !== -1) {
+              setMobileActive(index);
+            }
           }
-        }
-      });
-    },
-    {
-      root: null,
-      threshold: 0.6,
-    },
-  );
+        });
+      },
+      {
+        root: null,
+        threshold: 0.6,
+      },
+    );
 
-  slides.forEach((slide) => observer.observe(slide));
+    slides.forEach((slide) => observer.observe(slide));
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section
-      ref={sectionRef}
-      className="w-full bg-white"
-    >
+    <section ref={sectionRef} className="w-full bg-white">
       {/* ================= HEADING ================= */}
       <div className="mx-auto max-w-337.5 px-5 py-12 md:px-8 md:py-16 lg:px-10">
         <div className="mb-3 flex items-center justify-center gap-3 md:mb-4 md:gap-4">
@@ -136,8 +133,8 @@ useLayoutEffect(() => {
         </h2>
 
         <p className="mx-auto mt-5 max-w-200 text-center text-[13px] leading-[1.9] tracking-[0.3px] text-[#777] md:mt-7 md:text-[18px] md:leading-loose">
-          Choosing a plot is an important decision. At Happy Homes, we focus
-          on creating developments that make that decision more confident and
+          Choosing a plot is an important decision. At Happy Homes, we focus on
+          creating developments that make that decision more confident and
           meaningful.
         </p>
       </div>
@@ -205,14 +202,14 @@ useLayoutEffect(() => {
       {/* MOBILE - HORIZONTAL SCROLL */}
       {/* ===================================================== */}
       <div className="scrollbar-hide flex w-full snap-x snap-mandatory overflow-x-auto md:hidden">
-{highlights.map((item, index) => (
-           <article
-  key={item.title}
-  ref={(el) => {
-    mobileSlidesRef.current[index] = el;
-  }}
-  className="relative h-[55svh] min-h-100 w-full min-w-full shrink-0 snap-start overflow-hidden"
->
+        {highlights.map((item, index) => (
+          <article
+            key={item.title}
+            ref={(el) => {
+              mobileSlidesRef.current[index] = el;
+            }}
+            className="relative h-[55svh] min-h-100 w-full min-w-full shrink-0 snap-start overflow-hidden"
+          >
             {/* Image */}
             <Image
               src={item.image}
@@ -259,17 +256,17 @@ useLayoutEffect(() => {
 
               {/* Slide indicator */}
               <div className="mt-5 flex justify-center gap-1.5">
-  {highlights.map((_, dotIndex) => (
-    <span
-      key={dotIndex}
-      className={`h-0.5 transition-all duration-300 ${
-        dotIndex === mobileActive
-          ? "w-8 bg-white"
-          : "w-3 bg-white/40"
-      }`}
-    />
-  ))}
-</div>
+                {highlights.map((_, dotIndex) => (
+                  <span
+                    key={dotIndex}
+                    className={`h-0.5 transition-all duration-300 ${
+                      dotIndex === mobileActive
+                        ? "w-8 bg-white"
+                        : "w-3 bg-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </article>
         ))}

@@ -58,7 +58,7 @@ export default function Hero() {
         opacity: 1,
         y: 0,
         scale: 1,
-        height: "650px",
+        height: "550px",
       });
 
       gsap.set(logoRef.current, {
@@ -165,15 +165,26 @@ export default function Hero() {
         >
           <div
             ref={buildingRef}
-            className="absolute inset-x-0  md:top-[-200] bottom-0 z-10 will-change-transform"
+            className="absolute inset-x-0 top-[-20] bottom-0 z-10 h-[75vh] will-change-transform sm:h-[68vh] md:top-[-200] md:h-[120vh]"
           >
+            {/* Desktop image */}
             <Image
               src="/image/animation/building.webp"
               alt="Modern luxury property"
               fill
               priority
               sizes="100vw"
-              className="object-cover object-top"
+              className="hidden object-cover object-top md:block"
+            />
+
+            {/* Phone image */}
+            <Image
+              src="/image/animation/build.png"
+              alt="Modern luxury property"
+              fill
+              priority
+              sizes="100vw"
+              className="object-contain object-bottom md:hidden"
             />
           </div>
           <div

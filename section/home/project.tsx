@@ -19,7 +19,6 @@ const projects = [
       "Future Connectivity",
     ],
   },
-
 ];
 
 export default function Project() {
@@ -32,9 +31,7 @@ export default function Project() {
   };
 
   const previousProject = () => {
-    setActiveProject(
-      (prev) => (prev - 1 + projects.length) % projects.length,
-    );
+    setActiveProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   return (
@@ -129,7 +126,7 @@ export default function Project() {
               type="button"
               onClick={previousProject}
               aria-label="Previous project"
-              className="absolute left-4 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/20 text-white backdrop-blur-md transition-all hover:bg-white hover:text-[#541215] sm:left-6 sm:h-12 sm:w-12"
+              className="absolute top-1/2 left-4 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/20 text-white backdrop-blur-md transition-all hover:bg-white hover:text-[#541215] sm:left-6 sm:h-12 sm:w-12"
             >
               <ChevronLeft
                 size={20}
@@ -143,7 +140,7 @@ export default function Project() {
               type="button"
               onClick={nextProject}
               aria-label="Next project"
-              className="absolute right-4 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/20 text-white backdrop-blur-md transition-all hover:bg-white hover:text-[#541215] sm:right-6 sm:h-12 sm:w-12"
+              className="absolute top-1/2 right-4 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/20 text-white backdrop-blur-md transition-all hover:bg-white hover:text-[#541215] sm:right-6 sm:h-12 sm:w-12"
             >
               <ChevronRight
                 size={20}
@@ -168,7 +165,7 @@ export default function Project() {
                 }`}
               />
             ))}
-          </div>  
+          </div>
         </div>
       </div>
     </section>

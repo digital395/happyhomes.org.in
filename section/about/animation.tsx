@@ -129,11 +129,11 @@ export default function Animation() {
               ref={pearlOutlineRef}
               className="absolute inset-0 z-20 flex flex-col items-center justify-center"
             >
-              <div className="md:mt-7.5 font-poppins text-[90px] leading-none font-black tracking-[-0.04em] text-transparent uppercase [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white]">
+              <div className="font-poppins text-[90px] leading-none font-black tracking-[-0.04em] text-transparent uppercase [-webkit-text-stroke:1px_white] md:mt-7.5 md:[-webkit-text-stroke:2px_white]">
                 More Than a Plot.
               </div>
 
-              <div className="mt-7.5 font-poppins text-[90px] leading-none font-black tracking-[-0.04em] text-transparent uppercase [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white]">
+              <div className="font-poppins mt-7.5 text-[90px] leading-none font-black tracking-[-0.04em] text-transparent uppercase [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white]">
                 A Place for Your Future.{" "}
               </div>
             </div>
@@ -142,11 +142,11 @@ export default function Animation() {
               ref={pearlFillRef}
               className="relative z-10 flex flex-col items-center justify-center bg-[url('/image/about/animation.webp')] bg-cover bg-clip-text bg-center bg-no-repeat text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]"
             >
-              <div className="mt-7.5 font-poppins text-[90px] leading-none font-black tracking-[-0.04em] uppercase">
+              <div className="font-poppins mt-7.5 text-[90px] leading-none font-black tracking-[-0.04em] uppercase">
                 More Than a Plot.
               </div>
 
-              <div className="mt-7.5 font-poppins text-[90px] leading-none font-black tracking-[-0.04em] uppercase">
+              <div className="font-poppins mt-7.5 text-[90px] leading-none font-black tracking-[-0.04em] uppercase">
                 A Place for Your Future.{" "}
               </div>
             </div>

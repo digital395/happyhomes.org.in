@@ -39,12 +39,12 @@ export const amenities = [
     image: "/image/project/amenities/8.webp",
     alt: "Better Accessibility",
   },
-   {
+  {
     title: "70 ACRES",
     image: "/image/project/amenities/9.webp",
     alt: "70 ACRES",
   },
-   {
+  {
     title: "70 ACRES",
     image: "/image/project/amenities/10.webp",
     alt: "70 ACRES",
