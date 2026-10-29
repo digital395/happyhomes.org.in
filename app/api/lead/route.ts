@@ -65,6 +65,57 @@ export async function POST(req: NextRequest) {
         { status: 500 },
       );
     }
+   const webhookUrl = process.env.PIX_WEBHOOK_URL;
+
+    if (!webhookUrl) {
+      console.error("PIX_WEBHOOK_URL is not configured.");
+
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Pix CRM webhook URL is not configured.",
+        },
+        { status: 500 },
+      );
+    }
+
+   const pixPayload = {
+      full_name: name,
+      phone_number: phone,
+      email: email || "",
+      notes: "Lead received from BC_Website",
+      project_code: "Happy Homes",
+    };
+
+    console.log("Pix CRM Payload:", pixPayload);
+
+    // Send POST request with JSON
+    const pixResponse = await fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(pixPayload),
+      cache: "no-store",
+    });
+
+    const pixResponseText = await pixResponse.text();
+
+    console.log("Pix CRM Status:", pixResponse.status);
+    console.log("Pix CRM Response:", pixResponseText);
+
+    if (!pixResponse.ok) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Lead email sent, but Pix CRM submission failed.",
+          crmStatus: pixResponse.status,
+          crmResponse: pixResponseText,
+        },
+        { status: 502 },
+      );
+    }
 
     return NextResponse.json(
       {
