@@ -9,6 +9,8 @@ type EnquiryPopupProps = {
   open: boolean;
   onClose: () => void;
   downloadBrochure?: boolean;
+    prime?: boolean;
+
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -78,7 +80,8 @@ export default function EnquiryPopup({
   open,
   onClose,
   downloadBrochure = false,
-}: EnquiryPopupProps) {
+  prime = false,
+}: EnquiryPopupProps)  {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState("");
   const [formSuccess, setFormSuccess] = useState("");
@@ -88,16 +91,21 @@ export default function EnquiryPopup({
 
   if (!open) return null;
 
-  const downloadBrochureFile = () => {
-    const link = document.createElement("a");
+const downloadBrochureFile = () => {
+  const link = document.createElement("a");
 
-    link.href = "/brochure.pdf";
+  if (prime) {
+    link.href = "/brochure/prime-brochure.pdf";
+    link.download = "Prime-Estate-Brochure.pdf";
+  } else {
+    link.href = "/brochure/emperor-brochure.pdf";
     link.download = "Emperor-City-Brochure.pdf";
+  }
 
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  };
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+};
 
   const handleClose = () => {
     if (isSubmitting) return;

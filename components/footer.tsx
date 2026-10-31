@@ -12,7 +12,7 @@ const navLinks = [
   { label: "About Us", href: "/about-us" },
   {
     label: "Project",
-    subLinks: [{ label: "Emperor City", href: "/project/emperor-city" }],
+    subLinks: [{ label: "Emperor City", href: "/project/emperor-city" },{ label: "Prime Estate", href: "/project/prime-estate" }],
   },
   { label: "Contact", href: "/contact" },
 ];

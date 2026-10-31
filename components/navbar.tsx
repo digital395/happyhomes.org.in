@@ -19,6 +19,10 @@ const projects = [
     name: "Emperor City",
     href: "/project/emperor-city",
   },
+    {
+    name: "Prime Estate",
+    href: "/project/prime-estate",
+  },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -116,57 +120,61 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 left-0 z-100 w-full">
         <nav className="relative flex h-15 w-full items-center bg-white shadow-[0_2px_20px_rgba(0,0,0,0.07)] md:h-18">
-          <Link
-            href="/"
-            onClick={closeMenu}
-            className="group relative z-110 ml-5 flex h-22.5 w-18.75 shrink-0 items-center justify-center overflow-hidden bg-[#851c17] shadow-[0_6px_20px_rgba(133,28,23,0.18)] md:ml-16 md:h-31.25 md:w-25.5 lg:ml-20"
-          >
-            <motion.span
-              className="absolute top-0 left-0 h-0.75 w-full bg-[#d9a62e]"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{
-                duration: 0.8,
-                ease,
-              }}
-              style={{
-                transformOrigin: "left",
-              }}
-            />
+<div className="relative z-110 ml-5 flex shrink-0 items-center gap-4 md:ml-10 md:gap-6 lg:ml-14 lg:gap-8">
+  {/* Happy Homes Logo */}
+  <Link
+    href="/"
+    onClick={closeMenu}
+    className="group flex shrink-0 items-center"
+  >
+    <motion.div
+      whileHover={{ scale: 1.03, y: -1 }}
+      transition={{ duration: 0.45, ease }}
+      className="flex items-center"
+    >
+      <Image
+        src="/image/logo/hh.png"
+        alt="Happy Homes"
+        width={50}
+        height={30}
+        priority
+        className="h-auto w-12 object-contain md:w-16 lg:w-18"
+      />
+    </motion.div>
+  </Link>
 
-            <motion.div
-              whileHover={{
-                scale: 1.05,
-                y: -1,
-              }}
-              transition={{
-                duration: 0.45,
-                ease,
-              }}
-              className="mt-2 md:mt-5"
-            >
-              <Image
-                src="/image/logo/hh-white.png"
-                alt="Happy Homes"
-                width={105}
-                height={80}
-                priority
-                className="h-auto w-16.25 object-contain md:w-19.5"
-              />
-            </motion.div>
+  {/* Theme Separator */}
+  <motion.span
+    initial={{ opacity: 0, scaleY: 0 }}
+    animate={{ opacity: 1, scaleY: 1 }}
+    transition={{ duration: 0.5, delay: 0.2, ease }}
+    className="text-[24px] font-light leading-none text-[#d9a62e] md:text-[28px]"
+  >
+    |
+  </motion.span>
 
-            <motion.span
-              className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 bg-[#d9a62e]"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.2,
-                ease,
-              }}
-            />
-          </Link>
-
+  {/* VIP City Logo */}
+  <Link
+    href="/"
+    onClick={closeMenu}
+    className="group flex shrink-0 items-center"
+  >
+    <motion.div
+      whileHover={{ scale: 1.03, y: -1 }}
+      transition={{ duration: 0.45, ease }}
+      className="flex items-center"
+    >
+      <Image
+        src="/image/logo/vip.png"
+        alt="VIP City"
+        width={150}
+        height={75}
+        priority
+        className="h-auto w-20 object-contain md:w-23 lg:w-25"
+      />
+    </motion.div>
+  </Link>
+</div>
           <motion.div
             initial="hidden"
             animate="visible"

@@ -168,7 +168,7 @@ export default function Hero() {
             className="absolute inset-x-0 top-[150] bottom-0 z-10 h-[75vh] will-change-transform sm:h-[68vh] md:top-[-200] md:h-[120vh]"
           >
             <Image
-              src="/image/animation/build.webp"
+              src="/image/animation/emperor-build.webp"
               alt="Modern luxury property"
               fill
               priority
@@ -176,7 +176,7 @@ export default function Hero() {
               className="hidden object-cover object-top md:block"
             />
             <Image
-              src="/image/animation/build-phone.webp"
+              src="/image/animation/emperor-build-phone.webp"
               alt="Modern luxury property"
               fill
               priority

@@ -8,14 +8,16 @@ import Overview from "@/section/project/emperor-city/overview";
 import Map from "@/section/project/emperor-city/map";
 import Layout from "@/section/project/emperor-city/layout";
 import Amenities from "@/section/project/emperor-city/amenities";
+import PriceDetails from "@/section/project/emperor-city/price";
 
 export default function AboutPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-white">
+    <main className="">
       <Hero />
       <About />
       <Overview />
       <Amenities />
+      <PriceDetails />
       <Highlights />
       <Map />
       <Layout />

@@ -18,7 +18,7 @@ export default function About() {
   const downloadBrochure = () => {
     if (isLeadValid()) {
       const link = document.createElement("a");
-      link.href = "/brochure.pdf";
+      link.href = "/brochure/emperor-brochure.pdf";
       link.download = "Emperor-City-Brochure.pdf";
       document.body.appendChild(link);
       link.click();
@@ -92,7 +92,7 @@ export default function About() {
             >
               <div className="relative aspect-[1.08/1] w-full">
                 <Image
-                  src="/image/project/about.png"
+                  src="/image/project/emperorcity/about.png"
                   alt="Happy family"
                   fill
                   priority
