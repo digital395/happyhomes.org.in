@@ -3,10 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/project";
-
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Project() {
@@ -27,7 +26,15 @@ export default function Project() {
     duration: shouldReduceMotion ? 0.01 : 0.75,
     ease,
   };
+  useEffect(() => {
+    if (shouldReduceMotion || projects.length <= 1) return;
 
+    const interval = setInterval(() => {
+      setActiveProject((prev) => (prev + 1) % projects.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [activeProject, shouldReduceMotion]);
   return (
     <section className="relative w-full overflow-hidden bg-white">
       <div className="mx-auto w-full max-w-384 px-4 py-12 sm:px-6 md:px-8 md:py-16 lg:px-10">
